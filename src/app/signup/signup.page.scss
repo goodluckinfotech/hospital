@@ -1,0 +1,74 @@
+ion-content {
+	--background: #ffa402;
+	
+}
+
+.login-details{
+	background-color: rgba(19, 18, 18, 0.1);
+	padding-bottom: 20px;
+	min-height: 100% !important;
+
+}
+.login-details img {
+	margin: 0 auto;
+	display: block;
+	width: 150px;
+	padding-top: 75px;
+}
+
+
+
+.select-role-number ion-label {
+	color: white;
+}
+
+.select-role-password ion-label {
+	color: white;
+}
+
+.select-role-name ion-label {
+	color: white;
+}
+
+.select-role-email ion-label {
+	color: white;
+}
+
+.select-role-name {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+	margin-top: 30px;
+}
+
+.select-role-number {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+}
+
+.select-role-email {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+}
+
+.select-role-password {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+}
+
+.Login-btn {
+	--background: #b93b11;
+	width: 40%;
+	margin-top: 35px;
+}
+
+.Signup-detail {
+	color: #413d0d;
+	margin-top: 35px;
+	font-size: 19px;
+	font-weight: 600;
+	padding: 0px 10px;
+}

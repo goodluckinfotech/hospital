@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Book Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="login-details">
+
+    <ion-item class="select-role-name">
+      <ion-label position="floating">Enter Your Name</ion-label>
+      <ion-input type="text"  style="color: white"></ion-input>
+    </ion-item>
+    <ion-item class="select-role-email">
+      <ion-label position="floating">Enter Your Email</ion-label>
+      <ion-input type="Email"  style="color: white"></ion-input>
+    </ion-item>
+    <ion-item class="select-role-number">
+      <ion-label position="floating">Mobile Number</ion-label>
+      <ion-input type="Number"  style="color: white"></ion-input>
+    </ion-item>
+    <ion-item class="select-role-password">
+      <ion-label position="floating">Age</ion-label>
+      <ion-input type="Number"  style="color: white"></ion-input>
+    </ion-item>
+
+    <ion-item class="select-role-password">
+      <ion-label>Date</ion-label>
+      <ion-datetime display-format=" DD MMM , YYYY" (ionChange)="updateProviderTime(item)" min="2019" max="2021" style="color: white"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item class="select-role-password">
+
+      <ion-label>Session</ion-label>
+      <ion-select  style="color: white">
+        <ion-select-option value="m">Morning</ion-select-option>
+        <ion-select-option value="e">Evening</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item class="select-role-password">
+      <ion-label>Time</ion-label>
+      <ion-datetime display-format=" hh:mm a" minuteValues="0,30"  style="color: white"></ion-datetime>
+    </ion-item>
+
+    <p text-center>
+      <ion-button class="Login-btn">Register</ion-button>
+    </p>
+  </div>
+
+</ion-content>

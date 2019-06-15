@@ -1,3 +1,54 @@
-<ion-app>
+<!-- <ion-app>
   <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+
+
+
+<ion-app>
+  <ion-menu contentId="content1" side="start">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-item>
+        <ion-buttons slot="end">
+          <ion-icon name="person"></ion-icon>
+        </ion-buttons>
+        <ion-label>
+          Profile
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-buttons slot="end">
+            <ion-icon name="copy"></ion-icon>
+        </ion-buttons>
+        <ion-label>
+          Appoinment Histoty
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-buttons slot="end">
+          <ion-icon name="create"></ion-icon>
+        </ion-buttons>
+        <ion-label>
+          Change Password
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-buttons slot="end">
+            <ion-icon name="power"></ion-icon>
+        </ion-buttons>
+        <ion-label>
+          Log Out
+        </ion-label>
+      </ion-item>
+    </ion-content>
+
+  </ion-menu>
+  <ion-router-outlet id="content1" main></ion-router-outlet>
 </ion-app>

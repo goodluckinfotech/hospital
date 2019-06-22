@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
-     <ion-buttons slot="end">
-      <ion-menu-button ></ion-menu-button>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Skin Cliniq</ion-title>
   </ion-toolbar>
@@ -9,6 +9,103 @@
 </ion-header>
 
 <ion-content>
- <ion-button routerLink="/bookappointment" expand="block" fill="outline">book appoinment</ion-button>
+  <ion-button routerLink="/bookappointment" fill="outline" class="book-btn">book appoinment</ion-button>
+
+
+  <div class="bookinglist" >
+
+      <img src="assets/imgs/logo1.png" class="logo-imgs"> 
+
+      
+    <h5 class="book-heading">Booking Details</h5>
+
+    <div class="user-detail">
+      <ion-row>
+        <ion-col size="5">
+          Name
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          Kannadhasan
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="5">
+          Age
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          23
+        </ion-col>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col size="5">
+          Date
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          22-6-2019
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="5">
+          Session
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          Evening
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="5">
+          Time
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+        7.30 PM
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="5">
+          Token ID
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          243
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div class="user-information">
+      <p> <span style="color: red;font-size: 25px;">*</span> If you want change or cancel Apponment Please contact &nbsp; - <span style="font-size: 20px;font-weight: 600;">044-234567</span> </p>
+    </div>
+
+
+  </div>
+
+
+
 
 </ion-content>

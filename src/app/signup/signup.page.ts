@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class SignupPage implements OnInit {
 
   constructor() { }
-
+  formData = {
+    name : '',
+    email : '',
+    mobile : '',
+    password : ''
+  }
   ngOnInit() {
   }
+
 
 }

@@ -5,18 +5,21 @@
    </ion-header> -->
    <ion-content padding>
       <div class="login-details">
-         <img src="assets/imgs/logo1.png">
-         <ion-item class="select-role-number">
-            <ion-label position="floating">Mobile Number</ion-label>
-            <ion-input type="number"></ion-input>
-         </ion-item>
-         <ion-item class="select-role-password">
-            <ion-label position="floating">Password</ion-label>
-            <ion-input type="Password" ></ion-input>
-         </ion-item>
-         <p text-center>
-            <ion-button class="Login-btn" routerLink="/home">Login</ion-button>
-         </p>
+         <form (ngSubmit)="doLogin()">
+            <img src="assets/imgs/logo1.png">
+            <ion-item class="select-role-number">
+               <ion-label position="floating">Mobile Number</ion-label>
+               <ion-input [(ngModel)]="formdata.mobile" name="mobile" type="number"></ion-input>
+            </ion-item>
+            <ion-item class="select-role-password">
+               <ion-label position="floating">Password</ion-label>
+               <ion-input [(ngModel)]="formdata.password" name="password" type="Password" ></ion-input>
+            </ion-item>
+            <p text-center class="isError" *ngIf="isError" >{{ errorMsg }}</p>
+            <p text-center>
+               <ion-button type="submit" class="Login-btn" >Login</ion-button>
+            </p>
+         </form>
          <p text-center class="Signup-detail" routerLink="/signup"> <u>Create a New Account Register here</u></p>
       </div>
    </ion-content>

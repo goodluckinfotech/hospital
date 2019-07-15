@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>profile</ion-title>
+    <ion-title>Edit profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-content>
   <ion-card class="profile-card">
 
     <img src="assets/imgs/img1.jpg" class="user-images">
@@ -19,4 +19,36 @@
 
     </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content> -->
+
+
+
+
+<ion-content padding>
+    <div class="login-details">
+        <img src="assets/imgs/logo1.png">
+
+       <ion-item class="select-role-number">
+          <ion-label position="floating">Enter Your New Name</ion-label>
+          <ion-input type="number"></ion-input>
+       </ion-item>
+
+       <ion-item class="select-role-number">
+          <ion-label position="floating">Enter Your New Mobile Number</ion-label>
+          <ion-input type="number"></ion-input>
+       </ion-item>
+
+       <ion-item class="select-role-number">
+          <ion-label position="floating">Enter Your New Mail Id</ion-label>
+          <ion-input type="number"></ion-input>
+       </ion-item>
+
+       <!-- <ion-item class="select-role-password">
+          <ion-label position="floating">Enter Your Password</ion-label>
+          <ion-input type="Password" ></ion-input>
+       </ion-item> -->
+       <p text-center>
+          <ion-button class="Login-btn" routerLink="/home" (click)="presentToast()">Update Profile</ion-button>
+       </p>
+    </div>
+ </ion-content>

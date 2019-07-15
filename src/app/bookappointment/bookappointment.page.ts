@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bookappointment',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookappointmentPage implements OnInit {
 
-  constructor() { }
+  constructor( public toastController :ToastController ) { }
 
   ngOnInit() {
   }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Booking Appoinment Sucessfully',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
+
+  
 
 }

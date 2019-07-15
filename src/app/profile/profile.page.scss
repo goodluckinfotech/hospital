@@ -1,30 +1,93 @@
-.user-images{
-    display:block;
-    margin:auto;
-    width: 140px;
-    border-radius: 70px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    border: solid 4px #7993ff;
-}
-.user-details{
-    text-align: center;
-    font-size: 18px;
-    padding: 3px 0px;
-    color: #4b4b4b;
-    font-weight: 600;
+// .user-images{
+//     display:block;
+//     margin:auto;
+//     width: 140px;
+//     border-radius: 70px;
+//     margin-top: 50px;
+//     margin-bottom: 20px;
+//     border: solid 4px #7993ff;
+// }
+// .user-details{
+//     text-align: center;
+//     font-size: 18px;
+//     padding: 3px 0px;
+//     color: #4b4b4b;
+//     font-weight: 600;
     
+// }
+// .Name-user{
+//     text-align: center;
+//     font-size: 25px;
+//     font-weight: 600;
+//     padding: 15px 0px;
+//     border-bottom: solid 2px #bcbcbc;
+
+// }
+// .profile-card{
+//     background: #f2f2f2;
+//     margin-top: 20px;
+//     padding-bottom: 50px;
+// }
+
+
+
+
+
+
+
+// ............................new code,,,,,,,,,,,,,,,,,,,,,,,,,,,,,//
+
+ion-content {
+	--background: #ffffff;
+	
 }
-.Name-user{
-    text-align: center;
-    font-size: 25px;
-    font-weight: 600;
-    padding: 15px 0px;
-    border-bottom: solid 2px #bcbcbc;
+
+.login-details{
+	background-color: rgba(187, 164, 164, 0.1);
+	padding-bottom: 20px;
+	min-height: 100% !important;
 
 }
-.profile-card{
-    background: #f2f2f2;
-    margin-top: 20px;
-    padding-bottom: 50px;
+.login-details img {
+	margin: 0 auto;
+	display: block;
+	width: 150px;
+	padding-top: 25px;
+}
+
+.select-role-number ion-label {
+	color: rgb(0, 0, 0);
+}
+
+.select-role-password ion-label {
+	color: rgb(0, 0, 0);
+}
+
+.select-role-number {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+	margin-top: 30px;
+}
+
+.select-role-password {
+	width: 90%;
+	margin: 0 auto;
+	--background: transparent;
+	margin-top: 10px;
+}
+
+.Login-btn {
+	--background: #b93b11;
+	width: 40%;
+	margin-top: 35px;
+}
+
+.Signup-detail {
+	color: #413d0d;
+	margin-top: 35px;
+	font-size: 19px;
+	font-weight: 600;
+	padding: 0px 10px;
+
 }

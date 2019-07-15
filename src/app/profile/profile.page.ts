@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  constructor( public toastController:ToastController ) { }
 
   ngOnInit() {
+  }
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Update Profile Sucessfully',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

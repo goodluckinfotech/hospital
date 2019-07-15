@@ -1,10 +1,10 @@
 ion-content {
-	--background: #ffa402;
+	--background: #fffefb;
 	
 }
 
 .login-details{
-	background-color: rgba(19, 18, 18, 0.1);
+	background-color: rgba(187, 164, 164, 0.1);
 	padding-bottom: 20px;
 	min-height: 100% !important;
 
@@ -17,11 +17,11 @@ ion-content {
 }
 
 .select-role-number ion-label {
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .select-role-password ion-label {
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .select-role-number {

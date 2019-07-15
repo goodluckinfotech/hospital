@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'bookappointment', loadChildren: './bookappointment/bookappointment.module#BookappointmentPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'appoinmenthistory', loadChildren: './appoinmenthistory/appoinmenthistory.module#AppoinmenthistoryPageModule' }
+  { path: 'appoinmenthistory', loadChildren: './appoinmenthistory/appoinmenthistory.module#AppoinmenthistoryPageModule' },
+  { path: 'changepassword', loadChildren: './changepassword/changepassword.module#ChangepasswordPageModule' }
 ];
 @NgModule({
   imports: [

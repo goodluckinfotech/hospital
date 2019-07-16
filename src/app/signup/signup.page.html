@@ -5,27 +5,31 @@
    </ion-header> -->
 <ion-content padding>
    <div class="login-details">
-      <img src="assets/imgs/logo1.png">
-      <ion-item class="select-role-name">
-         <ion-label position="floating">Your Name</ion-label>
-         <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item class="select-role-email">
-         <ion-label position="floating">Your Email</ion-label>
-         <ion-input type="Email"></ion-input>
-      </ion-item>
-      <ion-item class="select-role-number">
-         <ion-label position="floating">Mobile Number</ion-label>
-         <ion-input type="Number"></ion-input>
-      </ion-item>
-      <ion-item class="select-role-password">
-         <ion-label position="floating">Password</ion-label>
-         <ion-input type="Password"></ion-input>
-      </ion-item>
-
-      <p text-center>
-         <ion-button class="Login-btn" routerLink="/home" (click)="presentToast()">Register</ion-button>
-      </p>
+      <form (ngSubmit)="doRegister()" >
+         <img src="assets/imgs/logo1.png">
+         <ion-item class="select-role-name">
+            <ion-label position="floating">Your Name</ion-label>
+            <ion-input type="text" [(ngModel)]="formdata.name" name="name" ></ion-input>
+         </ion-item>
+         <ion-item class="select-role-email">
+            <ion-label position="floating">Your Email</ion-label>
+            <ion-input type="email" [(ngModel)]="formdata.email" name="email" ></ion-input>
+         </ion-item>
+         <ion-item class="select-role-number">
+            <ion-label position="floating">Mobile Number</ion-label>
+            <ion-input type="Number" [(ngModel)]="formdata.mobile" name="mobile" ></ion-input>
+         </ion-item>
+         <ion-item class="select-role-password">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="Password" [(ngModel)]="formdata.password" name="password"></ion-input>
+         </ion-item>
+         <p text-center class="isError" *ngIf="isError" >{{ errorMsg }}</p>
+         <p text-center class="isSuccess" *ngIf="isSuccess" >{{ 'Registered successfully.' }}</p>
+         <p text-center>
+            <!-- <ion-button class="Login-btn" routerLink="/home" (click)="presentToast()">Register</ion-button> -->
+            <ion-button type="submit" class="Login-btn">Register</ion-button>
+         </p>
+      </form>
    </div>
 
 </ion-content>

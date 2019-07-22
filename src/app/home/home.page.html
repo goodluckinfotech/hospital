@@ -9,17 +9,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-button routerLink="/bookappointment" fill="outline" class="book-btn">book appoinment</ion-button>
+  <ion-button *ngIf="message" routerLink="/bookappointment" fill="outline" class="book-btn">book appoinment</ion-button>
 
+  <div class="user-detail" *ngIf="message" >
+      <span>{{ message }}</span>
+    </div>
 
-  <!-- <div class="bookinglist" >
+  <div class="bookinglist" *ngIf="appoinment" >
 
       <img src="assets/imgs/logo1.png" class="logo-imgs"> 
 
       
     <h5 class="book-heading">Booking Details</h5>
 
-    <div class="user-detail">
+    
+    <div class="user-detail"  >
+
+        <ion-row>
+            <ion-col size="5">
+              Status
+            </ion-col>
+            <ion-col size="1">
+              :
+            </ion-col>
+            <ion-col size="6">
+              <span>{{ appoinment.bookingstatus }}</span> 
+            </ion-col>
+          </ion-row>
+
       <ion-row>
         <ion-col size="5">
           Name
@@ -28,7 +45,7 @@
           :
         </ion-col>
         <ion-col size="6">
-          Kannadhasan
+          <span>{{ appoinment.fbookingname }}</span> 
         </ion-col>
       </ion-row>
 
@@ -41,7 +58,7 @@
           :
         </ion-col>
         <ion-col size="6">
-          23
+          {{ appoinment.bookingage }}
         </ion-col>
       </ion-row>
 
@@ -55,7 +72,7 @@
           :
         </ion-col>
         <ion-col size="6">
-          22-6-2019
+         {{ appoinment.appoinmentdate }}
         </ion-col>
       </ion-row>
 
@@ -68,31 +85,43 @@
           :
         </ion-col>
         <ion-col size="6">
-          Evening
+          {{ appoinment.session_name }}
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="5">
-          Time
+         Preferred Time
         </ion-col>
         <ion-col size="1">
           :
         </ion-col>
         <ion-col size="6">
-        7.30 PM
+        {{ appoinment.time_name }}
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="5">
-          Token ID
+          Confirmed Time
         </ion-col>
         <ion-col size="1">
           :
         </ion-col>
         <ion-col size="6">
-          243
+        {{ appoinment.confirm_time }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="5">
+          Token Number
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          {{ appoinment.token_number }}
         </ion-col>
       </ion-row>
 
@@ -104,74 +133,13 @@
 
 
   </div>
- -->
-
-
-
-
-
-<ion-card style="background: #ffffff;padding: 15px 0px;margin-top: 40px;"> 
- <ion-item lines="none" style="--background: #ffffff">
-    <ion-thumbnail slot="start">
-      <img src="assets/imgs/user.png">
-    </ion-thumbnail>
-    <ion-label>
-      <h2 style="font-size: 19px">Sivakumar</h2>
-      <p>Token Number :23</p>
-    </ion-label>
-   
-    <ion-button item-end>
-        <ion-icon name="clock"></ion-icon> &nbsp; 7.30 PM
-      </ion-button>
-
-    
-  </ion-item>
-</ion-card>
-
-
-
-
-<ion-card style="background: #ffffff;padding: 15px 0px;"> 
-    <ion-item lines="none" style="--background: #ffffff">
-       <ion-thumbnail slot="start">
-         <img src="assets/imgs/user.png">
-       </ion-thumbnail>
-       <ion-label>
-         <h2 style="font-size: 19px">Kannadhasan</h2>
-         <p>Token Number :24</p>
-       </ion-label>
-      
-       <ion-button item-end>
-           <ion-icon name="clock"></ion-icon> &nbsp; 8.00 PM
-         </ion-button>
-   
-       
-     </ion-item>
-   </ion-card>
 
 
 
 
 
 
-   <ion-card style="background: #47d351;padding: 15px 0px;"> 
-      <ion-item lines="none" style="--background: #47d351">
-         <ion-thumbnail slot="start">
-           <img src="assets/imgs/user.png">
-         </ion-thumbnail>
-         <ion-label>
-           <h2 style="font-size: 19px;color:white;">Arunkumar</h2>
-           <p style="color: white">Token Number :25</p>
-           <p style="color: white">12-7-2019</p>
-         </ion-label>
-        
-         <ion-button item-end>
-             <ion-icon name="clock"></ion-icon> &nbsp; 8.30 PM
-           </ion-button>
-     
-         
-       </ion-item>
-     </ion-card>
+
 
 
 </ion-content>

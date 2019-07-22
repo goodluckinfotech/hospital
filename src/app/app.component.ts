@@ -10,6 +10,9 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  online_id; 
+  name; 
+  mobile;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -21,6 +24,16 @@ export class AppComponent {
   }
   ngOnInit() {
     this.initializeApp();
+    this.checkLogin();
+  }
+
+  checkLogin(){
+    this.online_id = window.localStorage.getItem('online_id');
+    this.name = window.localStorage.getItem('name');
+    this.mobile = window.localStorage.getItem('mobile');
+    if(!this.online_id || !this.name || !this.mobile){
+      this.router.navigate(['/login'])
+    }
   }
 
   initializeApp() {
@@ -32,6 +45,7 @@ export class AppComponent {
   
   logout(){
     this.storage.clear();
+    window.localStorage.clear();
     this.router.navigate(['/login'])
   }
 }

@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'bookappointment', loadChildren: './bookappointment/bookappointment.module#BookappointmentPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'appoinmenthistory', loadChildren: './appoinmenthistory/appoinmenthistory.module#AppoinmenthistoryPageModule' },
-  { path: 'changepassword', loadChildren: './changepassword/changepassword.module#ChangepasswordPageModule' }
+  { path: 'changepassword', loadChildren: './changepassword/changepassword.module#ChangepasswordPageModule' },
+  { path: 'token-display', loadChildren: './token-display/token-display.module#TokenDisplayPageModule' }
+
 ];
 @NgModule({
   imports: [

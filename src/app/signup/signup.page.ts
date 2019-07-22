@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -23,7 +23,8 @@ export class SignupPage implements OnInit {
     public toastController : ToastController,
     private httpClient: HttpClient,
     private router: Router,
-    private storage: Storage
+    private storage: Storage,
+    @Inject('API_URL') private api_url: string
     ) { }
 
   ngOnInit() {
@@ -52,7 +53,7 @@ export class SignupPage implements OnInit {
       this.errorMsg = 'password empty';
       return;
     }
-    this.httpClient.post('http://demo.goodluckinfotech.com/skinclinic/api/login/register', this.formdata)
+    this.httpClient.post(this.api_url + '/login/register', this.formdata)
     .subscribe((response: any) => {
       if(response.status == 'success'){
         this.isSuccess = true;
@@ -62,7 +63,13 @@ export class SignupPage implements OnInit {
         this.storage.set('mobile', this.formdata.mobile);
         this.storage.set('password', this.formdata.password);
         this.storage.set('online_id', response.msg.online_id);
-        this.router.navigate(['/home'])
+        window.localStorage.clear();
+        window.localStorage.setItem('name', this.formdata.mobile);
+        window.localStorage.setItem('email', this.formdata.mobile);
+        window.localStorage.setItem('mobile', this.formdata.mobile);
+        window.localStorage.setItem('password', this.formdata.password);
+        window.localStorage.setItem('online_id', response.msg.online_id);
+        window.localStorage.navigate(['/home'])
       }else{
         this.isError = true;
         this.errorMsg = response.msg;

@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="primary">
+       <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+       </ion-buttons>
+       <ion-title>Token Display</ion-title>
+    </ion-toolbar>
+ </ion-header>
+
+<ion-content>
+<div *ngIf="appoinments && appoinments.length > 0" >
+    <ion-card style="background: #ffffff;padding: 15px 0px;" *ngFor="let token of appoinments;" > 
+        <ion-item lines="none" style="--background: #ffffff">
+           <ion-thumbnail slot="start">
+             <h2>{{ token.token_number }}</h2>
+             <!-- <img src="assets/imgs/user.png"> -->
+           </ion-thumbnail>
+           <ion-label>
+             <h2 style="font-size: 19px">{{ token.fbookingname }}</h2>
+             <p>Token Number :{{ token.token_number }}</p>
+             <p>Time :{{ token.confirm_time }}</p>
+             <p>Phone :{{ formatPhone(token.bookingphone) }}</p>
+           </ion-label>
+           <label class="status-label" [style.background-color]="'#' + statuses[token.bookingstatus].color_code"  >{{ token.bookingstatus }}</label>
+         </ion-item>
+       </ion-card>
+</div>
+
+<div *ngIf="!appoinments || appoinments.length < 1" >
+  <h3 style="margin-top: 10px;" >no appoinments found</h3>
+</div>
+
+
+
+
+
+
+
+
+
+   
+</ion-content>

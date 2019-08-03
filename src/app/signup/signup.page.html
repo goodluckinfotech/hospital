@@ -19,10 +19,10 @@
             <ion-label position="floating">Mobile Number</ion-label>
             <ion-input type="Number" [(ngModel)]="formdata.mobile" name="mobile" ></ion-input>
          </ion-item>
-         <ion-item class="select-role-password">
+         <!-- <ion-item class="select-role-password">
             <ion-label position="floating">Password</ion-label>
             <ion-input type="Password" [(ngModel)]="formdata.password" name="password"></ion-input>
-         </ion-item>
+         </ion-item> -->
          <p text-center class="isError" *ngIf="isError" >{{ errorMsg }}</p>
          <p text-center class="isSuccess" *ngIf="isSuccess" >{{ 'Registered successfully.' }}</p>
          <p text-center>

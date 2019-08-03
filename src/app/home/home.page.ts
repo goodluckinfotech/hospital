@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -11,15 +12,22 @@ export class HomePage implements OnInit {
   constructor(
     @Inject('API_URL') private api_url: string,
     private httpClient: HttpClient,
+    private storage: Storage,
   ) { }
 
   ngOnInit() {
     this.getAppointment();
   }
   getAppointment(){
+    let mobile = null;
+    this.storage.get('mobile').then((data)=>{ 
+      mobile = data;
+    });
+    if(!mobile || mobile == ''){
+      mobile =  window.localStorage.getItem('mobile');
+    }
     let requestData = {
-      mobile : window.localStorage.getItem("mobile"),
-      password : window.localStorage.getItem("password")
+      mobile : window.localStorage.getItem("mobile")
     };
     this.httpClient.post(this.api_url + '/Appoinment/getLast', requestData)
     .subscribe((response: any) => {

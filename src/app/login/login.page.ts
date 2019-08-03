@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   isOtpSent = false;
   isOtpError = false;
   otp = '';
+  loggedUserData = null;
   ngOnInit() {
     let online_id, name, mobile;
     this.storage.get('online_id').then((value) => { online_id = value; });
@@ -51,6 +52,7 @@ export class LoginPage implements OnInit {
       if(response.status == 'success'){
         this.isOtpSent = true;
         this.otp = response.msg;
+        this.loggedUserData = response.data;
         return false;
       }else{
         this.isError = true;
@@ -69,31 +71,19 @@ export class LoginPage implements OnInit {
       return;
     }
     if(this.otp == this.formdata.otp){
-      this.router.navigate(['/home'])
+      window.localStorage.setItem("mobile",this.loggedUserData.bookingphone);
+      window.localStorage.setItem('online_id', this.loggedUserData.online_id);
+      window.localStorage.setItem('name', this.loggedUserData.fbookingname);
+      window.localStorage.setItem('email', this.loggedUserData.bookingemail);
+      this.storage.set('mobile', this.loggedUserData.bookingphone);
+      this.storage.set('online_id', this.loggedUserData.online_id);
+      this.storage.set('name', this.loggedUserData.fbookingname);
+      this.storage.set('email', this.loggedUserData.bookingemail);
+      this.router.navigate(['/home']);
     }else{
       this.isOtpError = true;
       this.otpErrorMsg = 'Invalid OTP entered.';
     }
-    // this.httpClient.post(this.api_url + '/login/validateOtp', this.formdata)
-    // .subscribe((response: any) => {
-    //   if(response.status == 'success'){
-    //     window.localStorage.setItem("mobile",this.formdata.mobile);
-    //     window.localStorage.setItem('online_id', response.msg.online_id);
-    //     window.localStorage.setItem('name', response.msg.fbookingname);
-    //     window.localStorage.setItem('email', response.msg.bookingemail);
-    //     this.storage.set('mobile', this.formdata.mobile);
-    //     this.storage.set('online_id', response.msg.online_id);
-    //     this.storage.set('name', response.msg.fbookingname);
-    //     this.storage.set('email', response.msg.bookingemail);
-    //     this.router.navigate(['/home'])
-    //   }else{
-    //     this.isOtpError = true;
-    //     this.otpErrorMsg = 'Invalid OTP entered.';
-    //   }
-    // }, (error)=>{
-    //   this.isOtpError = true;
-    //   this.otpErrorMsg = 'Unexpected error occured. Please try again later.';
-    // })
   }
 
 }

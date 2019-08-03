@@ -9,96 +9,47 @@
 
 <ion-content padding>
   <div class="login-details">
-
-    <ion-item class="select-role-name">
-      <ion-label position="floating">Enter Your Name</ion-label>
-      <ion-input type="text" style="color: rgb(0, 0, 0)"></ion-input>
-    </ion-item>
-    <!-- <ion-item class="select-role-email">
-      <ion-label position="floating">Enter Your Email</ion-label>
-      <ion-input type="Email"  style="color: rgb(0, 0, 0)"></ion-input>
-    </ion-item> -->
-    <ion-item class="select-role-number">
-      <ion-label position="floating">Mobile Number</ion-label>
-      <ion-input type="Number" style="color: rgb(0, 0, 0)"></ion-input>
-    </ion-item>
-    <ion-item class="select-role-password">
-      <ion-label position="floating">Age</ion-label>
-      <ion-input type="Number" style="color: rgb(0, 0, 0)"></ion-input>
-    </ion-item>
-
-    <ion-item class="select-role-password">
-      <ion-label>Date</ion-label>
-      <ion-datetime display-format=" DD MMM , YYYY" (ionChange)="updateProviderTime(item)" min="2019" max="2021"
-        style="color: rgb(0, 0, 0)"></ion-datetime>
-    </ion-item>
-
-
-    <ion-item class="select-role-password">
-      <select placeholder="Session" (change)="changeTime($event.target.value)" class="selectsession">
-        <option *ngFor="let count of sessionList" style="padding: 50px;">{{count.name}} </option>
-      </select>
-    </ion-item>
-
-
-    <ion-item class="select-role-password">
-        <ion-label>Session</ion-label>
-        <ion-select (change)="changeTime($event.target.value)" placeholder="Session">
-          <ion-select-option [value]="session.time" *ngFor="let session of sessionList">{{session.name}}</ion-select-option>
-         
-        </ion-select>
+    <form (ngSubmit)="bookAppointment()" >
+      <ion-item class="select-role-name">
+        <ion-label position="floating">Enter Your Name</ion-label>
+        <ion-input type="text" [(ngModel)]="formdata.name" name="name" ></ion-input>
       </ion-item>
-    
-    
-
+      <ion-item class="select-role-number">
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input type="Number" [(ngModel)]="formdata.mobile" name="mobile"></ion-input>
+      </ion-item>
+      <ion-item class="select-role-password">
+        <ion-label position="floating">Age</ion-label>
+        <ion-input type="Number" [(ngModel)]="formdata.age" name="age" ></ion-input>
+      </ion-item>
 
       <ion-item class="select-role-password">
-          <ion-label>time</ion-label>
-          <ion-select placeholder="Time">
-            <ion-select-option *ngFor="let time of timeList">{{timelist}}</ion-select-option>
-           
-          </ion-select>
-        </ion-item>
-      
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="DD/MM/YYYY" max="2021" name="date" [(ngModel)]="formdata.date"></ion-datetime>
+      </ion-item>
 
+      <ion-item class="select-role-password">
+        <ion-label>Session</ion-label>
+        <ion-select (ionChange)="changeTime($event.target.value)" placeholder="Session" name="session">
+          <ion-select-option [value]="session" *ngFor="let session of sessionList">{{session.sessionName}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item class="select-role-password">
-      <label>time</label>
-      <select placeholder="Time" class="selectsession">
-        <option *ngFor="let timelist of time">{{timelist}} </option>
-      </select>
+      <ion-item class="select-role-password">
+        <ion-label>Time</ion-label>
+        <ion-select placeholder="Time" name="time" [(ngModel)]="formdata.time">
+          <ion-select-option *ngFor="let time of selectedSessionTimeList" [value]="time.value">{{time.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    </ion-item>
-
-
-
-
-    <!-- <ion-item class="select-role-password">
-      <ion-label>Time</ion-label>
-      <ion-datetime display-format=" hh:mm a" minuteValues="0,30" style="color: rgb(0, 0, 0)"></ion-datetime>
-    </ion-item> -->
-
-    <p text-center>
-      <ion-button class="Login-btn" routerLink="/home" (click)="presentToast()">Register</ion-button>
-    </p>
+      <p text-center class="isError" *ngIf="isError" >{{ errorMsg }}</p>
+      <p text-center class="isSuccess" *ngIf="isSuccess" >{{ 'Booked successfully.' }}</p>
+      <p text-center>
+        <ion-button class="Login-btn" type="submit" >Book</ion-button>
+      </p>
+    </form>
   </div>
-
-
-  <!-- 
-  <label>session</label>
-  <div>
-    <select placeholder="Session" (change)="changeTime($event.target.value)">
-      <option *ngFor="let count of sessionList">{{count.name}} </option>
-    </select>
-  </div>
-
-
-  <label>time</label>
-  <div>
-    <select placeholder="Time">
-      <option *ngFor="let timelist of time">{{timelist}} </option>
-    </select>
-  </div> -->
-
 
 </ion-content>

@@ -38,21 +38,21 @@ export class SignupPage implements OnInit {
       this.errorMsg = 'name empty';
       return;
     }
-    if(!this.formdata.email || this.formdata.email == ''){
-      this.isError = true;
-      this.errorMsg = 'email empty';
-      return;
-    }
+    // if(!this.formdata.email || this.formdata.email == ''){
+    //   this.isError = true;
+    //   this.errorMsg = 'email empty';
+    //   return;
+    // }
     if(!this.formdata.mobile || this.formdata.mobile == ''){
       this.isError = true;
       this.errorMsg = 'mobile number empty';
       return;
     }
-    if(!this.formdata.password || this.formdata.password == ''){
-      this.isError = true;
-      this.errorMsg = 'password empty';
-      return;
-    }
+    // if(!this.formdata.password || this.formdata.password == ''){
+    //   this.isError = true;
+    //   this.errorMsg = 'password empty';
+    //   return;
+    // }
     this.httpClient.post(this.api_url + '/login/register', this.formdata)
     .subscribe((response: any) => {
       if(response.status == 'success'){
@@ -69,7 +69,7 @@ export class SignupPage implements OnInit {
         window.localStorage.setItem('mobile', this.formdata.mobile);
         window.localStorage.setItem('password', this.formdata.password);
         window.localStorage.setItem('online_id', response.msg.online_id);
-        window.localStorage.navigate(['/home'])
+        this.router.navigate(['/home']);
       }else{
         this.isError = true;
         this.errorMsg = response.msg;

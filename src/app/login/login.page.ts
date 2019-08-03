@@ -17,10 +17,14 @@ export class LoginPage implements OnInit {
     ) { }
   formdata = {
     mobile : '',
-    password : ''
+    otp : ''
   };
   errorMsg = '';
+  otpErrorMsg = '';
   isError = false;
+  isOtpSent = false;
+  isOtpError = false;
+  otp = '';
   ngOnInit() {
     let online_id, name, mobile;
     this.storage.get('online_id').then((value) => { online_id = value; });
@@ -36,35 +40,60 @@ export class LoginPage implements OnInit {
 
   doLogin(){
     this.isError = false;
+    this.otp = '';
     if(!this.formdata.mobile || this.formdata.mobile == ''){
       this.isError = true;
       this.errorMsg = 'mobile number empty';
       return;
     }
-    if(!this.formdata.password || this.formdata.password == ''){
-      this.isError = true;
-      this.errorMsg = 'password empty';
-      return;
-    }
     this.httpClient.post(this.api_url + '/login/checkLogin', this.formdata)
     .subscribe((response: any) => {
       if(response.status == 'success'){
-        window.localStorage.setItem("mobile",this.formdata.mobile);
-        window.localStorage.setItem("password", this.formdata.password);
-        window.localStorage.setItem('online_id', response.msg.online_id);
-        window.localStorage.setItem('name', response.msg.fbookingname);
-        window.localStorage.setItem('email', response.msg.bookingemail);
-        this.storage.set('mobile', this.formdata.mobile);
-        this.storage.set('password', this.formdata.password);
-        this.storage.set('online_id', response.msg.online_id);
-        this.storage.set('name', response.msg.fbookingname);
-        this.storage.set('email', response.msg.bookingemail);
-        this.router.navigate(['/home'])
+        this.isOtpSent = true;
+        this.otp = response.msg;
+        return false;
       }else{
         this.isError = true;
-        this.errorMsg = 'Mobile / Password wrong.';
+        this.errorMsg = 'Mobile number wrong.';
       }
-    }, (error)=>{console.log(error)})
+    }, (error)=>{
+      this.isError = true;
+      this.errorMsg = 'Unexpected error occured. Please try again later.';
+    })
+  }
+
+  validateOtp(){
+    if(!this.formdata.otp || this.formdata.otp == ''){
+      this.isOtpError = true;
+      this.otpErrorMsg = 'otp empty';
+      return;
+    }
+    if(this.otp == this.formdata.otp){
+      this.router.navigate(['/home'])
+    }else{
+      this.isOtpError = true;
+      this.otpErrorMsg = 'Invalid OTP entered.';
+    }
+    // this.httpClient.post(this.api_url + '/login/validateOtp', this.formdata)
+    // .subscribe((response: any) => {
+    //   if(response.status == 'success'){
+    //     window.localStorage.setItem("mobile",this.formdata.mobile);
+    //     window.localStorage.setItem('online_id', response.msg.online_id);
+    //     window.localStorage.setItem('name', response.msg.fbookingname);
+    //     window.localStorage.setItem('email', response.msg.bookingemail);
+    //     this.storage.set('mobile', this.formdata.mobile);
+    //     this.storage.set('online_id', response.msg.online_id);
+    //     this.storage.set('name', response.msg.fbookingname);
+    //     this.storage.set('email', response.msg.bookingemail);
+    //     this.router.navigate(['/home'])
+    //   }else{
+    //     this.isOtpError = true;
+    //     this.otpErrorMsg = 'Invalid OTP entered.';
+    //   }
+    // }, (error)=>{
+    //   this.isOtpError = true;
+    //   this.otpErrorMsg = 'Unexpected error occured. Please try again later.';
+    // })
   }
 
 }

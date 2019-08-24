@@ -30,8 +30,8 @@
 
 .book-heading{
 text-align: center;
-margin: 15px 0px;
-    font-size: 24px;
+margin: 20px 0px;
+    font-size: 20px;
 }
 .user-detail{
     padding: 10px 10px;
@@ -51,4 +51,40 @@ margin: 15px 0px;
     margin: 0 auto;
     display: block;
     margin-top: 20px;
+}
+
+
+.user-name{
+    padding: 5px 5px;
+    margin:0px ;
+    font-size: 16px;
+    color: #696464;
+    font-weight: 600;
+}
+
+.user-mobile{
+    padding: 5px 5px;
+    margin: 0px;
+    font-size: 13px;
+    color: #464646;
+    font-weight: 600;
+
+}
+.user-date{
+    padding: 5px 5px;
+    margin: 0px;
+    font-size: 13px;
+    color: #464646;
+    font-weight: 600;
+
+}
+
+.btn-pres{
+    margin-top: 15%;
+    text-transform: capitalize;
+}
+
+.card-detail{
+    border: solid 1px #4c8dff;
+
 }

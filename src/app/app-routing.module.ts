@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'appoinmenthistory', loadChildren: './appoinmenthistory/appoinmenthistory.module#AppoinmenthistoryPageModule' },
   { path: 'changepassword', loadChildren: './changepassword/changepassword.module#ChangepasswordPageModule' },
-  { path: 'token-display', loadChildren: './token-display/token-display.module#TokenDisplayPageModule' }
+  { path: 'token-display', loadChildren: './token-display/token-display.module#TokenDisplayPageModule' },  { path: 'prescriptionlist', loadChildren: './prescriptionlist/prescriptionlist.module#PrescriptionlistPageModule' }
+
 
 ];
 @NgModule({

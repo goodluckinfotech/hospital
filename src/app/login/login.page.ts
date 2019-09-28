@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,6 +13,7 @@ export class LoginPage implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
+    public loadingController: LoadingController,
     private storage: Storage,
     @Inject('API_URL') private api_url: string
     ) { }
@@ -27,6 +29,7 @@ export class LoginPage implements OnInit {
   otp = '';
   loggedUserData = null;
   ngOnInit() {
+    // alert(navigator.onLine);
     let online_id, name, mobile;
     this.storage.get('online_id').then((value) => { online_id = value; });
     this.storage.get('name').then((value) => { name = value; });
@@ -85,5 +88,14 @@ export class LoginPage implements OnInit {
       this.otpErrorMsg = 'Invalid OTP entered.';
     }
   }
-
+  async presentLoadingWithOptions() {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: 5000,
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
+  }
 }

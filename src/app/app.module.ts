@@ -24,7 +24,7 @@ import { AppComponent } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide : 'API_URL', useValue : 'http://demo.goodluckinfotech.com/skinclinic/api' },
+    { provide : 'API_URL', useValue : 'http://skincliniq.in/api' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

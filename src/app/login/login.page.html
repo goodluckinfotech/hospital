@@ -13,7 +13,7 @@
             </ion-item>
             <p text-center class="isError" *ngIf="isError" >{{ errorMsg }}</p>
             <p text-center *ngIf="!isOtpSent">
-               <ion-button type="submit" class="Login-btn" >Validate</ion-button>
+               <ion-button type="submit" class="Login-btn" (click)="presentLoadingWithOptions()">Validate</ion-button>
             </p>
             <div *ngIf="isOtpSent" >
                <p text-center class="text-green">OTP has been sent to your mobile number.</p>
